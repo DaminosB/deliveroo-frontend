@@ -1,0 +1,14 @@
+header {
+  height: 60px;
+  border-bottom: 1px #e9ebeb solid;
+}
+
+header > div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header img {
+  width: 155px;
+}
