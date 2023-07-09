@@ -1,6 +1,7 @@
 import Meals from "./Meals";
 
 const Categories = ({ data }) => {
+  const hello = "hello";
   return (
     <div>
       {data.categories.map((category, index) => {
