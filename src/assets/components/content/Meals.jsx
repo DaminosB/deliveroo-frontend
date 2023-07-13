@@ -1,29 +1,35 @@
 const Meals = ({ category, cartItems, setCartItems }) => {
+  const handleAddToCart = (meal) => {
+    const newCart = [...cartItems];
+    let isExist = false;
+    let index = 0;
+
+    for (let i = 0; i < newCart.length; i++) {
+      if (newCart[i].name === meal.title) {
+        isExist = true;
+        index = i;
+      }
+    }
+
+    if (isExist) {
+      newCart[index].quantity++;
+      setCartItems(newCart);
+    } else {
+      newCart.push({ name: meal.title, quantity: 1, price: meal.price });
+      setCartItems(newCart);
+    }
+  };
+
   return (
     <>
       {category.meals.map((meal) => {
-        const handleAddToCart = () => {
-          const newCart = [...cartItems];
-          let isExist = false;
-          let index = 0;
-
-          for (let i = 0; i < newCart.length; i++) {
-            if (newCart[i].name === meal.title) {
-              isExist = true;
-              index = i;
-            }
-          }
-
-          if (isExist) {
-            newCart[index].quantity++;
-            setCartItems(newCart);
-          } else {
-            newCart.push({ name: meal.title, quantity: 1, price: meal.price });
-            setCartItems(newCart);
-          }
-        };
         return (
-          <div key={meal.id} onClick={handleAddToCart}>
+          <div
+            key={meal.id}
+            onClick={() => {
+              handleAddToCart(meal);
+            }}
+          >
             <div className="meal-description">
               <h3>{meal.title}</h3>
               {meal.description && <p>{meal.description}</p>}
