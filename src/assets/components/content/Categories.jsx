@@ -1,6 +1,6 @@
 import Meals from "./Meals";
 
-const Categories = ({ data }) => {
+const Categories = ({ data, cartItems, setCartItems }) => {
   return (
     <div>
       {data.categories.map((category, index) => {
@@ -9,7 +9,11 @@ const Categories = ({ data }) => {
             <div key={category.name} className="meals">
               <h2>{category.name}</h2>
               <div className="category">
-                <Meals category={category} />
+                <Meals
+                  category={category}
+                  cartItems={cartItems}
+                  setCartItems={setCartItems}
+                />
               </div>
             </div>
           );
