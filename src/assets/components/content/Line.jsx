@@ -29,7 +29,7 @@ const Line = ({ cartItems, setCartItems }) => {
               >
                 -
               </button>
-              <span>{quantity}</span>
+              <p>{quantity}</p>
               <button
                 onClick={() => {
                   handlePlus(index);
@@ -37,9 +37,9 @@ const Line = ({ cartItems, setCartItems }) => {
               >
                 +
               </button>
-              <span>{name}</span>
             </div>
-            <span>{`${(quantity * price).toFixed(2)} €`}</span>
+            <p>{name}</p>
+            <p>{`${(quantity * price).toFixed(2)}\u00a0€`}</p>
           </div>
         );
       })}

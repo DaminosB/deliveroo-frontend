@@ -9,30 +9,34 @@ const Cart = ({ cartItems, setCartItems }) => {
   return (
     <div className="cart-column">
       <div className="cart-box">
-        <button>Valider mon panier</button>
-        <div>
-          {cartItems.length === 0 ? (
+        <button className={cartItems.length > 0 ? "active" : "inactive"}>
+          Valider mon panier
+        </button>
+        {cartItems.length === 0 ? (
+          <div className="empty-cart">
             <p>Votre panier est vide</p>
-          ) : (
-            <>
-              <Line cartItems={cartItems} setCartItems={setCartItems} />
-              <div>
+          </div>
+        ) : (
+          <div className="full-cart">
+            <Line cartItems={cartItems} setCartItems={setCartItems} />
+            <div>
+              <div className="sub-total">
                 <div>
-                  <span>Sous Total</span>
-                  <span>{`${subTotal.toFixed(2)} €`}</span>
+                  <p>Sous Total</p>
+                  <p>{`${subTotal.toFixed(2)} €`}</p>
                 </div>
                 <div>
-                  <span>Frais de livraison</span>
-                  <span>2,50€</span>
-                </div>
-                <div>
-                  <span>Total</span>
-                  <span>{`${(subTotal + 2.5).toFixed(2)} €`}</span>
+                  <p>Frais de livraison</p>
+                  <p>2,50€</p>
                 </div>
               </div>
-            </>
-          )}
-        </div>
+              <div className="total">
+                <p>Total</p>
+                <p>{`${(subTotal + 2.5).toFixed(2)} €`}</p>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
