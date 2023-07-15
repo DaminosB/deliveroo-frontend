@@ -1,23 +1,20 @@
 const Meals = ({ category, cartItems, setCartItems }) => {
   const handleAddToCart = (meal) => {
     const newCart = [...cartItems];
-    let isExist = false;
-    let index = 0;
 
-    for (let i = 0; i < newCart.length; i++) {
-      if (newCart[i].name === meal.title) {
-        isExist = true;
-        index = i;
-      }
-    }
+    const indexItem = newCart.findIndex((element) => element.id === meal.id);
 
-    if (isExist) {
-      newCart[index].quantity++;
-      setCartItems(newCart);
+    if (indexItem === -1) {
+      newCart.push({
+        name: meal.title,
+        quantity: 1,
+        price: meal.price,
+        id: meal.id,
+      });
     } else {
-      newCart.push({ name: meal.title, quantity: 1, price: meal.price });
-      setCartItems(newCart);
+      newCart[indexItem].quantity++;
     }
+    setCartItems(newCart);
   };
 
   return (

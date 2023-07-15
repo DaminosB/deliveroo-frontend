@@ -18,9 +18,9 @@ const Line = ({ cartItems, setCartItems }) => {
 
   return (
     <>
-      {cartItems.map(({ name, quantity, price }, index) => {
+      {cartItems.map(({ name, quantity, price, id }, index) => {
         return (
-          <div key={name} className="line">
+          <div key={id} className="line">
             <div>
               <button
                 onClick={() => {

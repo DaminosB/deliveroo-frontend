@@ -129,6 +129,10 @@
   background-color: #bac3c3;
 }
 
+.cart-box > button.inactive:hover {
+  cursor: not-allowed;
+}
+
 .cart-box > div.empty-cart {
   /* border: 1px yellow solid; */
   color: #868a8a;

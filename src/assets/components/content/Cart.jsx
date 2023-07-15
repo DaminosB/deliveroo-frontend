@@ -3,7 +3,7 @@ import Line from "./Line";
 const Cart = ({ cartItems, setCartItems }) => {
   let subTotal = 0;
   for (let i = 0; i < cartItems.length; i++) {
-    subTotal = subTotal + cartItems[i].price * cartItems[i].quantity;
+    subTotal += cartItems[i].price * cartItems[i].quantity;
   }
 
   return (
